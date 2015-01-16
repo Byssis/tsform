@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="style.css">	
+	</head>
+	<body>
+		<form action="welcome.php" method="post">
+			<div class="group">
+				<input type="text" name="fullName" id="fullName" required><span class="highlight"></span><span class="bar"></span>
+				<label>Name</label>
+			</div>
+			<div class="group">
+				<input type="email" name="email" id="email" required><span class="highlight"></span><span class="bar"></span>
+				<label>Email</label>
+			</div>
+			<div class="group">
+				<select name="gender" id="gender">
+				<option> Choose your gender </option>
+				<option value="Male"> Male </option>
+				<option value="Female"> Female </option>						
+				</select> <span class="highlight"></span><span class="bar"></span>
+			</div>
+			<div class="group">
+				<select name="gender" id="gender">
+				<option> Choose your school </option>
+				<option value="Chalmers"> Chalmers </option>
+				<option value="KTH"> Kungliga Tekniska </option>
+				<option value="SU"> Stockholms Universitet </option>
+				<option value="Lund"> Lunds Universitet </option>
+				<option > Other </option>						
+				</select> <span class="highlight"></span><span class="bar"></span> 
+			</div>
+			<div class="group">
+				<select name="gender" id="gender">
+				<option> Choose your current year </option>
+				<option value="1"> 1 </option>
+				<option value="2"> 2 </option>
+				<option value="3"> 3 </option>
+				<option value="4"> 4 </option>	
+				<option value="5"> 5 </option>			
+				</select> <span class="highlight"></span><span class="bar"></span>
+			</div>
+			<button type="submit" class="button buttonBlue">Submit
+				<div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
+			</button>
+		</form>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="script.js"></script>
+	</body>
+</html>
