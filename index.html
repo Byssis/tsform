@@ -2,21 +2,29 @@
 <html>
 	<head>
 		<link rel="stylesheet" href="style.css">	
-		<meta name="viewport" content="width=device-width,initial-scale=1.0">
+		<!--<meta name="viewport" content="width=device-width,initial-scale=1.0">-->
 	</head>
 	<body>
 		<?php
 			$nameErr = $emailErr = $genderErr = $schoolErr = $educationErr = $yearErr = "";
 			$name = $email = $gender = $school = $education = $year = "";
 			if ($_SERVER["REQUEST_METHOD"] == "POST") {
-				$name = test_input($_POST["fullName"]);
-				if (!preg_match("/^[a-zA-Z ]+$/",$name)) {
-					$nameErr = "Only letters and white space allowed"; 
-				}
-				$email = test_input($_POST["email"]);
-				if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-					$emailErr = "Invalid email format"; 
-				}
+				if (empty($_POST["fullName"])) {
+					$nameErr = "Name is required";
+				} else {
+					$name = test_input($_POST["fullName"]);
+					if (!preg_match("/^[\p{L}\s'.-]+$/",$name)) {
+						$nameErr = "Only letters and white space allowed"; 
+					}
+				}				
+				if (empty($_POST["email"])) {
+					$emailErr = "Email is required";
+				} else {
+					$email = test_input($_POST["email"]);
+					if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+						$emailErr = "Invalid email format"; 
+					}
+				}				
 				$gender = test_input($_POST["gender"]);	
 				if (!preg_match("/^[a-zA-Z]*$/",$gender)) {
 					$genderErr = "Error, something went wrong"; 
@@ -41,10 +49,10 @@
 		?>		
 	
 		<form  method="post" action='<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>'>		
-		<img  class=ericssonlogo align=right src="Assets/ERI_UF_116px.png" width=46.4 height=41,6 >
+			<img  class=ericssonlogo align=right src="Assets/ERI_UF_116px.png" width=46.4 height=41,6 >
 		
-		<!-- Rubrik, placeholder just nu! -->
-		<h1 class=titel> Form 1 </h1>
+			<!-- Rubrik, placeholder just nu! -->
+			<h1 class=titel> Form 1 </h1>
 		
 			<div class="group">
 				<input type="text" name="fullName" id="fullName" required autofocus><span class="highlight"></span><span class="bar"></span>
@@ -57,35 +65,35 @@
 			</div>
 			<div class="group">
 				<select name="gender" id="gender">
-					<option> Choose your gender </option>
+					<option value=""> Choose your gender </option>
 					<option value="Male"> Male </option>
 					<option value="Female"> Female </option>						
 				</select> <span class="highlight"></span><span class="bar"></span>
 			</div>
 			<div class="group">
 				<select name="school" id="school">
-					<option> Choose your school </option>
+					<option value=""> Choose your school </option>
 					<option value="Chalmers"> Chalmers </option>
 					<option value="KTH"> Kungliga Tekniska </option>
 					<option value="SU"> Stockholms Universitet </option>
 					<option value="Lund"> Lunds Universitet </option>
-					<option > Other </option>						
+					<option value=""> Other </option>						
 				</select> <span class="highlight"></span><span class="bar"></span> 
 			</div>
 			<div class="group">				
 				<select name="education" id="education">
-					<option> Choose your education </option>
+					<option value=""> Choose your education </option>
 					<option value="Data/IT"> Data/IT </option>
 					<option value="Teknisk Fysik"> Teknisk Fysik </option>
 					<option value="Industriell ekonomi"> Industriell ekonomi </option>
 					<option value="Elektro"> Elektro </option>
 					<option value="Medieteknik"> Medieteknik </option>
-					<option> Other </option>
+					<option value=""> Other </option>
 				</select><span class="highlight"></span><span class="bar"></span> 
 			</div>
 			<div class="group">
 				<select name="year" id="year">
-					<option> Choose your current year </option>
+					<option value=""> Choose your current year </option>
 					<option value="1"> 1 </option>
 					<option value="2"> 2 </option>
 					<option value="3"> 3 </option>
@@ -96,8 +104,7 @@
 			<button type="submit" class="button buttonBlue">Submit
 				<div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
 			</button>
-		</form>
-		
+		</form>		
 		<?php
 			echo $name;
 			echo "<br>" ;

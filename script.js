@@ -1,18 +1,23 @@
 // Code goes here
 $(window, document, undefined).ready(function() {
-   if ($('input').val())
-		$('input').addClass('used');
-   else
-		$('input').removeClass('used');
-	
+   
+   var input= $('input').get();
+   for (var i = 0; i < input.length; i++){
+	   if ($('#' + input[i].id).val())
+			$('#' + input[i].id).addClass('used');
+	   else{
+			$('#' + input[i].id).removeClass('used');
+			$('#' + input[i].id).blur(function() {
+				var $this = $(this);
+				if ($this.val())
+					$this.addClass('used');
+				else
+					$this.removeClass('used');
+			});
+	   }	
+   }
 
-  $('input').blur(function() {
-    var $this = $(this);
-    if ($this.val())
-      $this.addClass('used');
-    else
-      $this.removeClass('used');
-  });
+ 
 
   /*
   var $ripples = $('.ripples');
