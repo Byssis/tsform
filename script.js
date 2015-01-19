@@ -16,9 +16,6 @@ $(window, document, undefined).ready(function() {
 			});
 	   }	
    }
-
- 
-
   /*
   var $ripples = $('.ripples');
 

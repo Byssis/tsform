@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<link rel="stylesheet" href="style.css">	
-		<!--<meta name="viewport" content="width=device-width,initial-scale=1.0">-->
+		<meta name="viewport" content="width=device-width,initial-scale=1.0">
 	</head>
 	<body>
 		<?php
@@ -104,19 +104,21 @@
 			<button type="submit" class="button buttonBlue">Submit
 				<div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
 			</button>
-		</form>		
+		</form>
+		
 		<?php
-			echo $name;
-			echo "<br>" ;
-			echo $email;
-			echo "<br>";
-			echo $gender;
-			echo "<br>";
-			echo $school;
-			echo "<br>";
-			echo $education;
-			echo "<br>";
-			echo $year;
+            // Save the entry to a csv file
+			if (!empty($name) && !empty($email)){			
+				$date = date('Y-m-d');
+				$filename = 'CsvFiles/'.$date.'.csv';
+				if (!file_exists($filename)) {
+					$csv = "Name;Email;Gender;School;Education;Year\n";                                         
+				}				
+				$csv.= $name.';'.$email.';'.$gender.';'.$school.';'.$education.';'.$year."\n"; // Append data to csv				
+				$csv_handler = fopen ($filename,'a'); // a for append, w for remove and write
+				fwrite ($csv_handler,$csv);
+				fclose ($csv_handler);	
+			}                        
 		?>		
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<script src="script.js"></script>
