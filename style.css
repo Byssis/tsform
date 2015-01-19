@@ -40,7 +40,9 @@ form {
 }
 
 .ericssonlogo{
-font-family:Arial;
+	font-family:Arial;
+    width:46.4px; 
+	height:41.6px;
 }
 
 input {

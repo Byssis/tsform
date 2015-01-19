@@ -55,23 +55,23 @@
 			<h1 class=titel> Form 1 </h1>
 		
 			<div class="group">
-				<input type="text" name="fullName" id="fullName" required autofocus><span class="highlight"></span><span class="bar"></span>
+				<input type="text" name="fullName" id="fullName" tabindex="1" required autofocus><span class="highlight"></span><span class="bar"></span>
 				<label>Name <span class="Error"> * <?php echo $nameErr;?></span></label>
 			</div>
 			<div class="group">
 				
-				<input type="email" name="email" id="email" required><span class="highlight"></span><span class="bar"></span>
+				<input type="email" name="email" id="email" tabindex="2" required><span class="highlight"></span><span class="bar"></span>
 				<label>Email <span class="Error"> * <?php echo $emailErr;?></span></label>
 			</div>
 			<div class="group">
-				<select name="gender" id="gender">
+				<select name="gender" id="gender" tabindex="3">
 					<option value=""> Choose your gender </option>
 					<option value="Male"> Male </option>
 					<option value="Female"> Female </option>						
 				</select> <span class="highlight"></span><span class="bar"></span>
 			</div>
 			<div class="group">
-				<select name="school" id="school">
+				<select name="school" id="school" tabindex="4">
 					<option value=""> Choose your school </option>
 					<option value="Chalmers"> Chalmers </option>
 					<option value="KTH"> Kungliga Tekniska </option>
@@ -81,7 +81,7 @@
 				</select> <span class="highlight"></span><span class="bar"></span> 
 			</div>
 			<div class="group">				
-				<select name="education" id="education">
+				<select name="education" id="education" tabindex="5">
 					<option value=""> Choose your education </option>
 					<option value="Data/IT"> Data/IT </option>
 					<option value="Teknisk Fysik"> Teknisk Fysik </option>
@@ -92,7 +92,7 @@
 				</select><span class="highlight"></span><span class="bar"></span> 
 			</div>
 			<div class="group">
-				<select name="year" id="year">
+				<select name="year" id="year" tabindex="6">
 					<option value=""> Choose your current year </option>
 					<option value="1"> 1 </option>
 					<option value="2"> 2 </option>
@@ -101,7 +101,7 @@
 					<option value="5"> 5 </option>			
 				</select> <span class="highlight"></span><span class="bar"></span>
 			</div>			
-			<button type="submit" class="button buttonBlue">Submit
+			<button type="submit" class="button buttonBlue" tabindex="7">Submit
 				<div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
 			</button>
 		</form>
