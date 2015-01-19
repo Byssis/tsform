@@ -14,6 +14,7 @@ $(window, document, undefined).ready(function() {
       $this.removeClass('used');
   });
 
+  /*
   var $ripples = $('.ripples');
 
   $ripples.on('click.Ripples', function(e) {
@@ -37,5 +38,6 @@ $(window, document, undefined).ready(function() {
   $ripples.on('animationend webkitAnimationEnd mozAnimationEnd oanimationend MSAnimationEnd', function(e) {
   	$(this).removeClass('is-active');
   });
+  */
 
 });

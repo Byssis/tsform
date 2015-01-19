@@ -5,9 +5,42 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1.0">
 	</head>
 	<body>
-		<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
-		
-		
+		<?php
+			$nameErr = $emailErr = $genderErr = $schoolErr = $educationErr = $yearErr = "";
+			$name = $email = $gender = $school = $education = $year = "";
+			if ($_SERVER["REQUEST_METHOD"] == "POST") {
+				$name = test_input($_POST["fullName"]);
+				if (!preg_match("/^[a-zA-Z ]+$/",$name)) {
+					$nameErr = "Only letters and white space allowed"; 
+				}
+				$email = test_input($_POST["email"]);
+				if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+					$emailErr = "Invalid email format"; 
+				}
+				$gender = test_input($_POST["gender"]);	
+				if (!preg_match("/^[a-zA-Z]*$/",$gender)) {
+					$genderErr = "Error, something went wrong"; 
+				}
+				$school = test_input($_POST["school"]);	
+				if (!preg_match("/^[a-zA-Z ]*$/",$school)) {
+					$schoolErr = "Error, something went wrong"; 
+				}
+				$education = test_input($_POST["education"]);
+				if (!preg_match("/^[a-zA-Z ]*$/",$education)) {
+					$educationErr = "Error, something went wrong"; 
+				}
+				$year = test_input($_POST["year"]);
+			}
+
+			function test_input($data) {
+				$data = trim($data);
+				$data = stripslashes($data);
+				$data = htmlspecialchars($data);
+				return $data;
+			}
+		?>		
+	
+		<form  method="post" action='<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>'>		
 		<img  class=ericssonlogo align=right src="Assets/ERI_UF_116px.png" width=46.4 height=41,6 >
 		
 		<!-- Rubrik, placeholder just nu! -->
@@ -15,11 +48,12 @@
 		
 			<div class="group">
 				<input type="text" name="fullName" id="fullName" required autofocus><span class="highlight"></span><span class="bar"></span>
-				<label>Name</label>
+				<label>Name <span class="Error"> * <?php echo $nameErr;?></span></label>
 			</div>
 			<div class="group">
+				
 				<input type="email" name="email" id="email" required><span class="highlight"></span><span class="bar"></span>
-				<label>Email</label>
+				<label>Email <span class="Error"> * <?php echo $emailErr;?></span></label>
 			</div>
 			<div class="group">
 				<select name="gender" id="gender">
@@ -65,32 +99,18 @@
 		</form>
 		
 		<?php
-			$name = $email = $gender = $school = $education = $year = "";
-			if ($_SERVER["REQUEST_METHOD"] == "POST") {
-				$name = test_input($_POST["name"]);
-				$email = test_input($_POST["email"]);
-				$gender = test_input($_POST["gender"]);				
-				$school = test_input($_POST["school"]);				
-				$education = test_input($_POST["education"]);
-				$year = test_input($_POST["year"]);
-			}
-
-			function test_input($data) {
-				$data = trim($data);
-				$data = stripslashes($data);
-				$data = htmlspecialchars($data);
-				return $data;
-			}
-			
 			echo $name;
+			echo "<br>" ;
 			echo $email;
+			echo "<br>";
 			echo $gender;
+			echo "<br>";
 			echo $school;
+			echo "<br>";
 			echo $education;
+			echo "<br>";
 			echo $year;
-		?>
-		
-		
+		?>		
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<script src="script.js"></script>
 	</body>

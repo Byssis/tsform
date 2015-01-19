@@ -257,3 +257,9 @@ select {
 	border-bottom: 1px solid #757575;
 }
 
+.Error {
+	color : red;
+	float : right;
+	clear: right;
+}
+
