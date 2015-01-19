@@ -1,5 +1,10 @@
 // Code goes here
 $(window, document, undefined).ready(function() {
+   if ($('input').val())
+		$('input').addClass('used');
+   else
+		$('input').removeClass('used');
+	
 
   $('input').blur(function() {
     var $this = $(this);
