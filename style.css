@@ -78,6 +78,12 @@ input:focus { outline: none; }
 
 /* Label */
 
+.Error {
+	color : red;
+	float : right;
+	clear: right;
+}
+
 label {
 	color: #999; 
 	font-size: 16px;
@@ -219,9 +225,5 @@ select:hover{
 	height:100%;
 }
 
-.Error {
-	color : red;
-	float : right;
-	clear: right;
-}
+
 
