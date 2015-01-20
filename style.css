@@ -10,7 +10,7 @@ body {
 /*Media queries*/ 
 @media only screen and (min-width : 1224px) { 
  	.mainform { 
-		width:650px;  			  
+		width:380px;  			  
  	}  			 
  } 
 
@@ -21,7 +21,7 @@ body {
  	url(Assets/ericssoncapitaltt-webfont.eot), 
  	url(Assets/ericssoncapitaltt-webfont.woff) format('woff'); 
  } 
-
+*/
 hgroup { 
 	text-align:center;
 	margin-top: 4em;
