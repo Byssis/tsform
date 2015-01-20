@@ -123,7 +123,7 @@
 		
 		<?php
             // Save the entry to a csv file
-			if (!empty($name) && !empty($email)){			
+			if (!empty($name) && filter_var($email, FILTER_VALIDATE_EMAIL)){			
 				$date = date('Y-m-d'); // ex 2014-03-22
 				$filename = 'CsvFiles/'.$date.'.csv'; // Date as filename for easy sort
 				if (!file_exists($filename)) {
