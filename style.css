@@ -6,7 +6,7 @@ body {
 	background: #eee;	
     -webkit-font-smoothing: antialiased;
 }
-
+/*
 /*Media queries*/ 
 @media only screen and (min-width : 1224px) { 
  	.mainform { 
