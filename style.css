@@ -1,27 +1,32 @@
 /* Styles go here */
-* { box-sizing:border-box; }
+
+* { 
+	box-sizing:border-box;
+}
 
 body {
 	font-family: Sans-serif;
 	background: #eee;	
     -webkit-font-smoothing: antialiased;
 }
-/*
-/*Media queries*/ 
+
+/* Media queries */ 
+
 @media only screen and (min-width : 1224px) { 
  	.mainform { 
 		width:380px;  			  
  	}  			 
- } 
+} 
 
- /*fonts*/ 
- @font-face{ 
+/* fonts */ 
+ 
+@font-face{ 
  	font-family: "Ericsson"; 
  	src: url('Assets/ericssoncapitaltt-webfont.ttf') format('truetype'), 
  	url(Assets/ericssoncapitaltt-webfont.eot), 
  	url(Assets/ericssoncapitaltt-webfont.woff) format('woff'); 
- } 
-*/
+} 
+
 hgroup { 
 	text-align:center;
 	margin-top: 4em;
@@ -39,7 +44,9 @@ h1{
 	font-family:"Ericsson"; 
 }
 
-h3 { color: #4a89dc; }
+h3 { 
+	color: #4a89dc; 
+}
 
 form {
 	width: 100%;
@@ -99,7 +106,7 @@ label {
 
 /* active */
 
- input:focus ~ label, input.used ~ label {
+input:focus ~ label, input.used ~ label {
 	top: -10px;
 	transform: scale(.75); left: -2px;
 	/* font-size: 14px; */
@@ -132,13 +139,11 @@ label {
 	right: 50%; 
 }
 
-
 /* active */
 
 input:focus ~ .bar:before, input:focus ~ .bar:after { 
 	width: 50%; 
 }
-
 
 /* Highlight */
 
@@ -151,7 +156,6 @@ input:focus ~ .bar:before, input:focus ~ .bar:after {
 	pointer-events: none;
 	opacity: 0.5;
 }
-
 
 /* active */
 
@@ -187,10 +191,10 @@ input:focus ~ .highlight {
 	cursor: pointer;
 	transition: all 0.15s ease;
 }
+
 .button:focus { 
 	outline: 0; 
 }
-
 
 /* Button modifiers */
 
@@ -204,10 +208,12 @@ input:focus ~ .highlight {
 }
 
 /* footer */
+
 #footerImg {
 	width:100%;
 	height:100%;
 }
+
 footer { 
 	text-align: center; 
 }
@@ -219,6 +225,7 @@ footer p {
 }
 
 /*  select  */
+
 select {
 	font-size:16px; 
 	padding: 10px 10px 10px 5px; 
@@ -227,7 +234,8 @@ select {
 	background: #fafafa; 
 	color: #636363; 
 	width: 100%; 
-	border: 0px ; 
+	border: 1px ; 
+	border-radius: 2px ;
 	-webkit-box-shadow: inset 0px 0px 15px -6px rgba(0,0,0,0.75); 
 	-moz-box-shadow: inset 0px 0px 15px -6px rgba(0,0,0,0.75); 
 	box-shadow: inset 0px 0px 15px -6px rgba(0,0,0,0.75
